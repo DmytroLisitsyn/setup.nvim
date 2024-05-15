@@ -19,7 +19,9 @@ return {
       },
       view = {
         width = 36,
-        number = true,
+        number = false,
+        relativenumber = false,
+        signcolumn = 'no',
       },
       -- change folder arrow icons
       renderer = {
