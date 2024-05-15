@@ -19,5 +19,12 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { 'Appfile', 'Fastfile', 'Matchfile', 'Pluginfile' },
+  callback = function()
+    vim.opt.filetype = 'ruby'
+  end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
