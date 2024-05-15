@@ -11,6 +11,9 @@ return {
     -- change color for arrows in tree to light blue
     vim.cmd [[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]]
 
+    local HEIGHT_RATIO = 0.8
+    local WIDTH_RATIO = 0.3
+
     -- configure nvim-tree
     nvimtree.setup {
       open_on_tab = true,
@@ -18,8 +21,29 @@ return {
         threshold = vim.log.levels.WARN,
       },
       view = {
-        width = 36,
-        number = false,
+        float = {
+          enable = true,
+          open_win_config = function()
+            local screen_w = vim.opt.columns:get()
+            local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+            local window_w = screen_w * WIDTH_RATIO
+            local window_h = screen_h * HEIGHT_RATIO
+            local window_w_int = math.floor(window_w)
+            local window_h_int = math.floor(window_h)
+            return {
+              border = 'rounded',
+              relative = 'editor',
+              row = 0,
+              col = 0,
+              width = window_w_int,
+              height = window_h_int,
+            }
+          end,
+        },
+        width = function()
+          return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+        end,
+        number = true,
         relativenumber = false,
         signcolumn = 'no',
       },
@@ -34,14 +58,14 @@ return {
       -- window splits
       actions = {
         open_file = {
-          quit_on_open = false,
+          quit_on_open = true,
           window_picker = {
             enable = false,
           },
         },
       },
       filters = {
-        custom = { '.DS_Store' },
+        custom = { '.DS_Store', '^.git$' },
       },
       git = {
         ignore = false,
