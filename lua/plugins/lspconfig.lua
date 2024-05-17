@@ -194,7 +194,7 @@ return {
           },
         },
 
-        ruby_ls = {},
+        solargraph = {},
       }
 
       -- Ensure the servers and tools above are installed
