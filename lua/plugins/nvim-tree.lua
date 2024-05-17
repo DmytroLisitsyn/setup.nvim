@@ -43,7 +43,7 @@ return {
         width = function()
           return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
         end,
-        number = true,
+        number = false,
         relativenumber = false,
         signcolumn = 'no',
       },
