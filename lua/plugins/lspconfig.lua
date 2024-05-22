@@ -194,9 +194,9 @@ return {
           },
         },
 
-        solargraph = {},
-
         pyright = {},
+        solargraph = {},
+        yamlls = {},
       }
 
       -- Ensure the servers and tools above are installed
