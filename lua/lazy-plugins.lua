@@ -24,7 +24,6 @@ require('lazy').setup {
   { 'numToStr/Comment.nvim', opts = {} },
 
   { import = 'plugins' },
-  { require 'themes/catppuccin' },
 }
 
 -- vim: ts=2 sts=2 sw=2 et
