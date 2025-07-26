@@ -65,4 +65,3 @@ vim.opt.scrolloff = 10
 -- turn off swapfile
 vim.opt.swapfile = false
 
--- vim: ts=2 sts=2 sw=2 et
