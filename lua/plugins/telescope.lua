@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  tag = "v0.1.9",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -12,4 +12,3 @@ return {
     vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
   end,
 }
--- vim: ts=2 sts=2 sw=2 et
